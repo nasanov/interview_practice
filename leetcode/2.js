@@ -9,6 +9,9 @@
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
+ * Time: O(N)
+ * Space: O(N)
+ * where N is length of the list
  */
 var addTwoNumbers = function(l1, l2) {
   let res = new ListNode(0);
