@@ -1,30 +1,37 @@
 /**
- * @param {number[]} nums
- * @return {number[][]}
+ * @param {string} digits
+ * @return {string[]}
  */
-var threeSum = function(nums) {
-  let res = [];
-  nums.sort((a,b) => a - b);
+var letterCombinations = function(digits) {
+  const digit = digits[0];
+  const letters = getLettersForDigit(digit);
   
-  for (let i = 0; i < nums.length - 2; i++) {
-    if(i == 0 || nums[i] > nums[i-1]){
-      let start = i + 1;
-      let end = nums.length - 1;
-
-      while (start < end) {
-        let sum = nums[i] + nums[start] + nums[end];
-        if (sum == 0) {
-          res.push([ nums[i], nums[start], nums[end] ]);
-        }
-        if (sum < 0) {
-          let currentStart = nums[start];
-          while (currentStart == nums[start] && start < end) start++;
-        } else {
-          let currentEnd = nums[end];
-          while (currentEnd == nums[end] && start < end) end--;
-        }
+  const res = [];
+  if (digit) {
+      for (let l of letters) {
+          let next = letterCombinations(digits.slice(1));
+          if (!next.length) {
+              res.push(l);
+              continue;
+          }
+          for (let rest of next) {
+              res.push(l + rest);
+          }
       }
-    }
   }
-  return res;
+  return res
 };
+
+function getLettersForDigit(digit) {
+  const map = {
+      '2': ['a', 'b', 'c'],
+      '3': ['d', 'e', 'f'],
+      '4': ['g', 'h', 'i'],
+      '5': ['j', 'k', 'l'],
+      '6': ['m', 'n', 'o'],
+      '7': ['p', 'q', 'r', 's'],
+      '8': ['t', 'u', 'v'],
+      '9': ['w', 'x', 'y', 'z'],
+  }
+  return map[digit] ? map[digit] : [];
+}
