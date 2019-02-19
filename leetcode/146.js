@@ -19,8 +19,6 @@ var LRUCache = function(capacity) {
 * @return {number}
 */
 LRUCache.prototype.get = function(key) {
-  //console.log(`get ${key}`);
-  //console.log(this.q);
   if (this.m[key]) {
       this.updateQueue(key);
       this.q.push(key);
@@ -35,19 +33,14 @@ LRUCache.prototype.get = function(key) {
 * @return {void}
 */
 LRUCache.prototype.put = function(key, value) {
-  //console.log(`put ${key}`);
-  //console.log(this.q);
   const keys = Object.keys(this.m);
   if (!this.m[key] && keys.length >= this.capacity) {
       let keyToRemove = this.q.shift();
-      //console.log(`removing ${keyToRemove}`);
       delete this.m[keyToRemove];
       this.updateQueue(keyToRemove);
   }
-  //console.log(this.q);
   this.updateQueue(key);
   this.q.push(key);
-  //console.log(this.q);
   this.m[key] = value;
 };
 
