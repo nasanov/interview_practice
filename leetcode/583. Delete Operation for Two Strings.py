@@ -12,7 +12,7 @@
 #   Time: O(N * M)
 #   Space: O(N* M)
 # Where:
-# N and M - lengths of the word1 and word2 accordingly
+#   N and M - lengths of the word1 and word2 accordingly
 
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
