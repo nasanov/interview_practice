@@ -1,6 +1,10 @@
 class MinHeap {
-  constructor() {
+  constructor(array) {
     this.heap = [null];
+    if (array) {
+      this.heap = this.heap.concat(array);
+      this._heapify(1);
+    }
   }
 
   insert(val) {
@@ -43,3 +47,5 @@ class MinHeap {
     }
   }
 }
+
+module.exports = MinHeap;
