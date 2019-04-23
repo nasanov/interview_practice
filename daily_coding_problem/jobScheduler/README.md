@@ -10,7 +10,9 @@ Implement a job scheduler which takes in a function *_f_* and an integer _*n*_, 
 
 ## Approach
   I use _min heap_ structure to store all possible ids. This way I also can guarantee that job will get the smallest id possible at the moment.
-  __schedule__ method will schedule one job given to it. It will throw an error when there is no id available for the job.
+
+  _schedule_ method will schedule one job given to it. It will throw an error when there is no id available for the job.
+
   _scheduleBatch_ method will schedule all jobs had passed. If some jobs cannot be scheduled at the moment - method will schedule another launch.
 
 ## Complexity
