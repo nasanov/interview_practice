@@ -31,14 +31,14 @@ class MinHeap {
 
   _heapify(idx) {
     const l = idx * 2;
-    const r = idx * 2;
+    const r = idx * 2 + 1;
 
     const current = this.heap[idx];
     const childIdx = Number.isInteger(this.heap[r]) && this.heap[r] < this.heap[l] ? r : l;
     const child = this.heap[childIdx];
     if (current >= child) {
       this.heap[idx] = child;
-      this.heap[childIdx] = parent;
+      this.heap[childIdx] = current;
       this._heapify(childIdx);
     }
   }
