@@ -1,2 +1,4 @@
 # MacOS temp files
 ._*
+
+__pycache__
